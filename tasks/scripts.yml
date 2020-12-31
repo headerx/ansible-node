@@ -1,6 +1,2 @@
 - name: Run only if docker is not installed
-  shell: command docker --version
-  register: print_version
-  ignore_errors: yes
   when: is_docker_installed.rc != 0
-  debug: msg="not installed"
