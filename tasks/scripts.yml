@@ -1,8 +1,3 @@
 - name: Run only if docker is not installed
   when: is_docker_installed.rc != 0
-  copy:
-    src: files/sudoers_ansible
-    dest: /home/inman/sudoers_ansible
-    owner: root
-    group: root
-    mode: 0440
+  shell: scripts/docker_install.sh 
