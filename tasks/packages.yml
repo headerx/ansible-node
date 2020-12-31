@@ -1,0 +1,25 @@
+- name: Install packages
+  when: ansible_distribution in ["Debian", "Ubuntu"]
+  apt:
+    name: 
+       - htop
+       - zsh
+       - apt-transport-https
+       - ca-certificates
+       - curl
+       - gnupg-agent
+       - software-properties-common
+       - cockpit
+       - cockpit-machines
+       - wget
+       - neofetch
+       - qemu-kvm
+       - libvirt-clients
+       - libvirt-daemon-system
+       - bridge-utils
+       - virtinst
+       - libvirt-daemon
+       - virt-manager
+       - net-tools
+       - nfs-common
+
