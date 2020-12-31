@@ -13,6 +13,12 @@
       apt:
         update_cache: yes
       changed_when: False
+    - name: Check is docker installed
+      shell: command -v docker-compose >/dev/null 2>&1
+      register: is_docker_installed
+      ignore_errors: yes
+    - debug: msg="{{ is_docker_installed.rc }}" # it returns rc 1
+    - debug: var=is_docker_installed
   
   tasks:
     - include: tasks/packages.yml

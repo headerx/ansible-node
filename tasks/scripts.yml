@@ -1,15 +1,7 @@
-- name: Check docker installation play
-  hosts: localhost
-  tasks:
-  - name: Check is docer-compose installed
-    shell: command -v docker-compose >/dev/null 2>&1
-    register: is_docker_installed
-    ignore_errors: yes
-  - debug: msg="{{ is_docker_installed.rc }}" # it returns rc 1
-  - debug: var=is_docker_installed
-  - name: Run only if compose is installed
-    shell: command docker-compose --version
-    register: print_version
-    ignore_errors: yes
-    when: is_docker_installed.rc != 0
-  - debug: msg="not installed"
+
+- name: Run only if docker is not installed
+  shell: command docker-compose --version
+  register: print_version
+  ignore_errors: yes
+  when: is_docker_installed.rc != 0
+  debug: msg="not installed"
