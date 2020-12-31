@@ -30,4 +30,4 @@
     dest: /home/inman/ansible_scripts
     owner: inman
     group: inman
-    mode: 755
+    mode: 775
