@@ -24,3 +24,19 @@
     group: root
     mode: 0440
 
+- name: copy cleanup script
+  copy:
+    src: scripts/
+    dest: /home/inman/rancher_cleanup.sh
+    owner: inman
+    group: inman
+    mode: 755
+
+- name: copy rancher launch script
+  copy:
+    src: scripts/
+    dest: /home/inman/rancher_launch.sh
+    owner: inman
+    group: inman
+    mode: 755
+
