@@ -67,4 +67,23 @@
     name: util-linux
     state: present
 
+- name: Install docker (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: docker
+    state: present
+
+- name: docker is running
+  when: ansible_distribution in ["Alpine"]
+  service:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Install docker (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: docker-compose
+    state: present
+
 
