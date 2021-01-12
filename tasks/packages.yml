@@ -1,4 +1,4 @@
-- name: Install packages
+- name: Install packages (debs)
   when: ansible_distribution in ["Debian", "Ubuntu"]
   apt:
     name: 
@@ -22,4 +22,49 @@
        - virt-manager
        - net-tools
        - nfs-common
+
+- name: Install libvirt (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: libvirt-daemon
+    state: present
+
+- name: libvirt is running
+  when: ansible_distribution in ["Alpine"]
+  service:
+    name: libvirtd
+    enabled: yes
+    state: started
+
+- name: Install nfs-utils (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: nfs-utils
+    state: present
+
+- name: nfs-client is running
+  when: ansible_distribution in ["Alpine"]
+  service:
+    name: nfsmount
+    enabled: yes
+    state: started
+
+- name: Install qemu (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: qemu-img
+    state: present
+
+- name: Install qemu-sys (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: qemu-system-x86_64
+    state: present
+
+- name: Install util-linux (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: util-linux
+    state: present
+
 

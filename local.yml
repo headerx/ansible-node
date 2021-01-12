@@ -19,10 +19,28 @@
       ignore_errors: yes
     - debug: msg="{{ is_docker_installed.rc }}" # it returns rc 1
     - debug: var=is_docker_installed
+
+    - name: update repos (Alpine)
+      when: ansible_distribution in ["Alpine"]
+      apk:
+        update_cache: yes
+      changed_when: False
+    - name: Check is docker installed
+      shell: command -v docker >/dev/null 2>&1
+      register: is_docker_installed
+      ignore_errors: yes
+    - debug: msg="{{ is_docker_installed.rc }}" # it returns rc 1
+    - debug: var=is_docker_installed
+
   
   tasks:
     - include: tasks/packages.yml
     - include: tasks/users.yml
     - include: tasks/cron.yml
     - include: tasks/scripts.yml
+
+  post_tasks:
+    - name: commit changes 
+      when: ansible_distribution in ["Alpine"]
+      shell: sudo lbu commit
 

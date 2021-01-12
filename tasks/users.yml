@@ -11,7 +11,7 @@
     group: root
     mode: 0440
 
-- name: create ansible user
+- name: create inman user
   user:
     name: inman
     system: yes
