@@ -80,6 +80,13 @@
     enabled: yes
     state: started
 
+- name: cron is running
+  when: ansible_distribution in ["Alpine"]
+  service:
+    name: crond
+    enabled: yes
+    state: started
+
 - name: Install docker (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
