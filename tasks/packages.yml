@@ -55,6 +55,18 @@
     name: qemu-img
     state: present
 
+- name: Install htop (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: htop
+    state: present
+
+- name: Install neofetch (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: neofetch
+    state: present
+
 - name: Install qemu-sys (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
