@@ -55,6 +55,12 @@
     name: qemu-img
     state: present
 
+- name: Install bridge (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: bridge
+    state: present
+
 - name: Install htop (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
