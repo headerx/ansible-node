@@ -111,6 +111,13 @@
     enabled: yes
     state: started
 
+- name: mini_httpd is running
+  when: ansible_distribution in ["Alpine"]
+  service:
+    name: mini_httpd
+    enabled: yes
+    state: started
+
 - name: Install docker (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
