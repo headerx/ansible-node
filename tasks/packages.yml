@@ -73,6 +73,18 @@
     name: pciutils
     state: present
 
+- name: Install rsync (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: rsync
+    state: present
+
+- name: Install mosquitto-clients (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: mosquitto-clients
+    state: present
+
 - name: Install neofetch (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
