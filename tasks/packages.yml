@@ -67,6 +67,12 @@
     name: htop
     state: present
 
+- name: Install pciutils (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: pciutils
+    state: present
+
 - name: Install neofetch (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
