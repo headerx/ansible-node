@@ -91,6 +91,12 @@
     name: neofetch
     state: present
 
+- name: Install sudo (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: sudo
+    state: present
+
 - name: Install glances (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
