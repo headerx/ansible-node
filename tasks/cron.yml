@@ -2,5 +2,13 @@
   cron:
     user: ansible
     name: "ansible provision"
-    minute: "*/45"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/inmanturbo/ansible-node.git"
+    minute: "*/10"
+    job: "/usr/bin/sudo /usr/bin/ansible-pull -o -U https://github.com/inmanturbo/ansible-node.git"
+
+- name: install cron job (lbu ci)
+  when: ansible_distribution in ["Alpine"]
+  cron:
+    user: ansible
+    name: "local backup utility"
+    minute: "*/20"
+    job: "/usr/bin/sudo /sbin/lbu ci -v | /usr/bin/sudo /usr/bin/tee -a /var/log/messages"

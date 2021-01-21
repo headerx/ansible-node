@@ -39,8 +39,3 @@
     - include: tasks/cron.yml
     - include: tasks/scripts.yml
 
-  post_tasks:
-    - name: commit changes 
-      when: ansible_distribution in ["Alpine"]
-      shell: sudo lbu commit
-
