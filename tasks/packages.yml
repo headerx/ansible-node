@@ -125,8 +125,8 @@
   when: ansible_distribution in ["Alpine"]
   service:
     name: docker
-    enabled: no
-    state: stopped
+    enabled: yes
+    state: started
 
 - name: cron is running
   when: ansible_distribution in ["Alpine"]
