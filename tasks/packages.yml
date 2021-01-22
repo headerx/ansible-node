@@ -120,6 +120,12 @@
   apk:
     name: docker
     state: present
+    
+- name: Install go (apks)
+  when: ansible_distribution in ["Alpine"]
+  apk:
+    name: go
+    state: present
 
 - name: docker is running
   when: ansible_distribution in ["Alpine"]
