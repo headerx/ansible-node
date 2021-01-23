@@ -34,7 +34,7 @@
 
     - name: update repos (swupd)
       when: ansible_distribution in ["Clear Linux OS"]
-      swupd:
+      #swupd:
         #update_cache: yes
       changed_when: False
     - name: Check is docker installed
