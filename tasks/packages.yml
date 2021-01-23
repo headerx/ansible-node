@@ -29,11 +29,11 @@
 #     name: kvm-kernel
 #     state: present
 
-- name: Install packages (swupd)
-  when: ansible_distribution in ["Clear Linux OS"]
-  swupd:
-    name: kvm-kernel
-    state: present
+# - name: Install packages (swupd)
+#   when: ansible_distribution in ["Clear Linux OS"]
+#   swupd:
+#     name: kvm-kernel
+#     state: present
 
 - name: Install packages (swupd)
   when: ansible_distribution in ["Clear Linux OS"]
