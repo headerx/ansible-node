@@ -23,6 +23,54 @@
        - net-tools
        - nfs-common
 
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: kvm-kernel
+    state: present
+
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: kvm-kernel
+    state: present
+
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: nfs-utils
+    state: present
+
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: wget
+    state: present
+
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: sysadmin-basic
+    state: present
+
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: sysadmin-remote
+    state: present
+
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: curl
+    state: present
+
+- name: Install packages (swupd)
+  when: ansible_distribution in ["Clear Linux OS"]
+  swupd:
+    name: virt-manager
+    state: present
+
 - name: Install libvirt (apks)
   when: ansible_distribution in ["Alpine"]
   apk:
