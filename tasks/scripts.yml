@@ -1,5 +1,5 @@
 - name: Run only if docker is not installed (! Alpine)
   when: 
     - is_docker_installed.rc != 0
-    - ansible_distribution not in ["Alpine"]
+    - ansible_distribution not in ["Alpine", "Clear Linux OS"]
   shell: scripts/docker_install.sh 
