@@ -10,7 +10,7 @@
   cron:
     user: ansible
     name: "local backup utility"
-    minute: "*/20"
+    minute: "*/10"
     job: "/usr/bin/sudo /sbin/lbu ci -v | /usr/bin/sudo /usr/bin/tee -a /var/log/messages"
 
 - name: install cron job (iptables)
