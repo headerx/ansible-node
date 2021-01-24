@@ -173,7 +173,7 @@
   when: ansible_distribution in ["Alpine"]
   apk:
     name: go
-    state: present
+    state: absent
 
 - name: docker is running
   when: ansible_distribution in ["Alpine"]
