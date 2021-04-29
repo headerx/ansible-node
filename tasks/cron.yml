@@ -3,7 +3,7 @@
     user: ansible
     name: "ansible provision"
     minute: "*/10"
-    job: "/usr/bin/sudo /usr/bin/ansible-pull -o -U https://github.com/inmanturbo/ansible-node.git"
+    job: "/usr/bin/sudo /usr/bin/ansible-pull -o -U https://github.com/digearthworks/ansible-node.git"
 
 - name: install cron job (lbu ci)
   when: ansible_distribution in ["Alpine"]
