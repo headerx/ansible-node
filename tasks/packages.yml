@@ -22,6 +22,7 @@
        - virt-manager
        - net-tools
        - nfs-common
+       - openssh-server
 
 # - name: Install packages (swupd)
 #   when: ansible_distribution in ["Clear Linux OS"]
