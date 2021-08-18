@@ -13,10 +13,10 @@
     minute: "*/10"
     job: "/usr/bin/sudo /sbin/lbu ci -v | /usr/bin/sudo /usr/bin/tee -a /var/log/messages"
 
-- name: install cron job (iptables)
-  when: ansible_distribution in ["Alpine"]
-  cron:
-    user: ansible
-    name: "iptables"
-    minute: "*"
-    job: "/usr/bin/sudo /sbin/iptables -P FORWARD ACCEPT"
+# - name: install cron job (iptables)
+#   when: ansible_distribution in ["Alpine"]
+#   cron:
+#     user: ansible
+#     name: "iptables"
+#     minute: "*"
+#     job: "/usr/bin/sudo /sbin/iptables -P FORWARD ACCEPT"
